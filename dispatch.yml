@@ -13,4 +13,14 @@ jobs:
     runs-on: 
   steps :
     - name : Display Name
-      run : echo "inputs.$Name"
+      run : echo "${{inputs.Name}}"
+    - name : Display Global var
+      run : echo "${{vars.HID}}"
+    - name : Display Scerets
+      run : echo "${{secrets.alibaba_access_key}}"
+    - name : Display Env varible 
+      env :
+        email_id : jyothiastb@gmail.com
+        run : echo "$email_id"
+        
+        
