@@ -1,0 +1,39 @@
+name: this is my first workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Enter the Name"
+        required: true
+      age:
+        description: "Enter the Age"
+        required: true
+      job_id:
+        description: "Enter job description"
+        required: true
+
+jobs:
+  display_data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Display Name
+        run: echo "${{ inputs.name }}"
+
+      - name: Display Age
+        run: echo "${{ inputs.age }}"
+
+      - name: Display Job ID
+        run: echo "${{ inputs.job_id }}"
+
+      - name: Display Global var
+        run: echo "${{ vars.HID }}"
+
+      - name: Display Secrets
+        run: echo "${{ secrets.ALIBABA_ACCESS_KEY != '' }}"
+
+      - name: Display Env variable
+        env:
+          email_id: jyothiastb@gmail.com
+        run: echo "$email_id"
