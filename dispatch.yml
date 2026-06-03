@@ -1,19 +1,24 @@
-name : this is my first workflow
+name : This is my first workflow
 on: 
   workflow_dispatch: 
   inputs:
-    Name : true
+    name :
     Description : Enter the Name 
-    Age : true 
+    required : true
+    age : 
     Description : Enter the Age 
-    Job ID : TRUE 
+    required : true
+    job ID : 
     Descrption : enter job description
+    required : true
 jobs:
-  Display Data :
-    runs-on: 
+  Display_Data :
+    runs-on: Unbuntu-latest
   steps :
     - name : Display Name
-      run : echo "${{inputs.Name}}"
+      run : echo "${{inputs.name}}"
+    - name : Display age 
+      run : write-output "my age is ${{inputs.age}}"
     - name : Display Global var
       run : echo "${{vars.HID}}"
     - name : Display Scerets
@@ -21,6 +26,6 @@ jobs:
     - name : Display Env varible 
       env :
         email_id : jyothiastb@gmail.com
-        run : echo "$email_id"
+      run : echo "$email_id"
         
         
