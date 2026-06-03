@@ -1,0 +1,16 @@
+name : this is my first workflow
+on: 
+  workflow_dispatch: 
+  inputs:
+    Name : true
+    Description : Enter the Name 
+    Age : true 
+    Description : Enter the Age 
+    Job ID : TRUE 
+    Descrption : enter job description
+jobs:
+  Display Data :
+    runs-on: 
+  steps :
+    - name : Display Name
+      run : echo "inputs.$Name"
